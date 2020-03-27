@@ -73,7 +73,7 @@
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
 
-     VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL/ROMS/External/varinfo.dat
+     VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL-old/ROMS/External/varinfo.dat
 !    VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL-dj/ROMS/External/varinfo.dat
 !     VARNAME = /home/lixinqu/scratch/COAWST-ROMS-OIL/ROMS/External/varinfo.dat
 !     VARNAME = ../src/COAWST-ROMS-OIL/ROMS/External/varinfo.dat
@@ -223,7 +223,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 43200  
+      NTIMES == 10  
           DT == 20.0d0  
      NDTFAST == 15     
 
@@ -256,13 +256,13 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T    T
-        NHIS == 180   120
-     NDEFHIS == 4320    0
+        NHIS == 1   120
+     NDEFHIS == 0    0
         NQCK == 0
      NDEFQCK == 0
       NTSAVG == 1    1
-        NAVG == 180  432
-     NDEFAVG == 4320    0
+        NAVG == 1  432
+     NDEFAVG == 0    0
       NTSDIA == 0    1
         NDIA == 0  432
      NDEFDIA == 0    0
