@@ -110,8 +110,8 @@ GridsInLayer =  1
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 14                               ! I-direction partition
-      NtileJ == 6                               ! J-direction partition
+      NtileI == 1 ! 14                               ! I-direction partition
+      NtileJ == 1 ! 6                               ! J-direction partition
 !      NtileI == 10                               ! I-direction partition
 !      NtileJ == 12                               ! J-direction partition
 

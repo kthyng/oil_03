@@ -5,7 +5,7 @@
 
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=ngom_online       #Set the job name to "JobExample2"
-#SBATCH --time=0:30:00               #Set the wall clock limit to 6hr and 30min
+#SBATCH --time=2:00:00               #Set the wall clock limit to 6hr and 30min
 #SBATCH --nodes=1                    #Request 1 node
 ##SBATCH --nodes=3                    #Request 1 node
 #SBATCH --ntasks-per-node=1         #Request 8 tasks/cores per node
@@ -31,4 +31,4 @@ export NETCDF_LIBDIR=$EBROOTNETCDFMINFORTRAN/lib
 export MCT_INCDIR=/home/lixinqu/local/include
 export MCT_LIBDIR=/home/lixinqu/local/lib
 
-mpirun -np 84 ./coawstM External/ocean_oil_03_LeftGaussian_20secs.in
+mpirun -np 1 ./coawstM External/ocean_oil_03_LeftGaussian_20secs.in
