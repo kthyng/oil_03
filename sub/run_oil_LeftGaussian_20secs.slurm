@@ -5,18 +5,18 @@
 
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=ngom_online       #Set the job name to "JobExample2"
-#SBATCH --time=2:00:00               #Set the wall clock limit to 6hr and 30min
-#SBATCH --nodes=1                    #Request 1 node
-##SBATCH --nodes=3                    #Request 1 node
-#SBATCH --ntasks-per-node=1         #Request 8 tasks/cores per node
-##SBATCH --ntasks-per-node=28         #Request 8 tasks/cores per node
+#SBATCH --time=20:00:00               #Set the wall clock limit to 6hr and 30min
+##SBATCH --nodes=4                    #Request 1 node
+#SBATCH --nodes=3                    #Request 1 node
+##SBATCH --ntasks-per-node=1         #Request 8 tasks/cores per node
+#SBATCH --ntasks-per-node=28         #Request 8 tasks/cores per node
 #SBATCH --mem=8G                    #Request 8GB per node 
 #SBATCH --output=log/NGOM_Out.%j      #Send stdout/err to "Example2Out.[jobID]" 
 
 ##OPTIONAL JOB SPECIFICATIONS
 ##SBATCH --account=123456             #Set billing account to 123456
 ##SBATCH --mail-type=ALL              #Send email on all job events
-##SBATCH --mail-user=vrx@tamu.edu    #Send all emails to email_address 
+#SBATCH --mail-user=kthyng@tamu.edu    #Send all emails to email_address 
 
 #First Executable Line
 
@@ -31,4 +31,4 @@ export NETCDF_LIBDIR=$EBROOTNETCDFMINFORTRAN/lib
 export MCT_INCDIR=/home/lixinqu/local/include
 export MCT_LIBDIR=/home/lixinqu/local/lib
 
-mpirun -np 1 ./coawstM External/ocean_oil_03_LeftGaussian_20secs.in
+mpirun -np 84 ./coawstM External/ocean_oil_03_LeftGaussian_20secs.in

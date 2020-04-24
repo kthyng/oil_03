@@ -53,6 +53,7 @@
 #define SPLINES_VVISC
 #define TS_U3HADVECTION
 #define TS_C4VADVECTION
+#undef TS_MPDATA
 #define SOLVE3D
 #define SALINITY
 #define NONLIN_EOS
@@ -110,8 +111,8 @@
 #undef FORWARD_READ
 #undef FORWARD_MIXING
 
-#define FLOATS
-#define FLOAT_OIL
+#undef FLOATS
+#undef FLOAT_OIL
 #undef FLOAT_VWALK
 #undef WOIL_INTEGRATED
 #undef OIL_DEBUG

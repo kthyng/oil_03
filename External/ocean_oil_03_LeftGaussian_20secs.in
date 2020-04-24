@@ -110,8 +110,8 @@ GridsInLayer =  1
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1 ! 14                               ! I-direction partition
-      NtileJ == 1 ! 6                               ! J-direction partition
+      NtileI == 14                                ! I-direction partition
+      NtileJ == 6                                 ! J-direction partition
 !      NtileI == 10                               ! I-direction partition
 !      NtileJ == 12                               ! J-direction partition
 
@@ -223,7 +223,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 10  
+      NTIMES == 60480  ! 14 days  
           DT == 20.0d0  
      NDTFAST == 15     
 
@@ -247,10 +247,10 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0    0
    LcycleRST == T    T
-       NRST == 43200   120
+       NRST == 0   120
 		
         NSTA == 1    1
-        NFLT == 120    1
+        NFLT == 0    1
        NINFO == 1    1
 
 ! Output history, average, diagnostic files parameters.
@@ -541,7 +541,7 @@ Hout(idVvel) == T T     ! v                  3D V-velocity
 Hout(idu3dE) == F F     ! u_eastward         3D U-eastward  at RHO-points
 Hout(idv3dN) == F F     ! v_northward        3D V-northward at RHO-points
 Hout(idWvel) == F F     ! w                  3D W-velocity
-Hout(idOvel) == T T     ! omega              omega vertical velocity
+Hout(idOvel) == F T     ! omega              omega vertical velocity
 Hout(idUbar) == T T     ! ubar               2D U-velocity
 Hout(idVbar) == T T     ! vbar               2D V-velocity
 Hout(idu2dE) == F F     ! ubar_eastward      2D U-eastward  at RHO-points
@@ -549,21 +549,21 @@ Hout(idv2dN) == F F     ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == T T     ! zeta               free-surface
 Hout(idBath) == F T     ! bath               time-dependent bathymetry
 
-Hout(idTvar) == T T T T ! temp, salt         temperature and salinity
+Hout(idTvar) == F F F F ! temp, salt         temperature and salinity
 
 Hout(idpthR) == F       ! z_rho              time-varying depths of RHO-points
 Hout(idpthU) == F       ! z_u                time-varying depths of U-points
 Hout(idpthV) == F       ! z_v                time-varying depths of V-points
 Hout(idpthW) == F       ! z_w                time-varying depths of W-points
 
-Hout(idUair) == T T     ! Uwind              surface U-wind
-Hout(idVair) == T T     ! Vwind              surface V-wind
+Hout(idUair) == F F     ! Uwind              surface U-wind
+Hout(idVair) == F F     ! Vwind              surface V-wind
 Hout(idUairE) == F T    ! Uwind_eastward     surface U-wind
 Hout(idVairN) == F T    ! Vwind_northward    surface V-wind
-Hout(idUsms) == T T     ! sustr              surface U-stress
-Hout(idVsms) == T T     ! svstr              surface V-stress
-Hout(idUbms) == T T     ! bustr              bottom U-stress
-Hout(idVbms) == T T     ! bvstr              bottom V-stress
+Hout(idUsms) == F F     ! sustr              surface U-stress
+Hout(idVsms) == F F     ! svstr              surface V-stress
+Hout(idUbms) == F F     ! bustr              bottom U-stress
+Hout(idVbms) == F F     ! bvstr              bottom V-stress
 
 Hout(idUbrs) == F T     ! bustrc             bottom U-current stress
 Hout(idVbrs) == F T     ! bvstrc             bottom V-current stress
@@ -636,17 +636,17 @@ Hout(idevap) == F T     ! evaporation        evaporation rate
 Hout(idrain) == F T     ! rain               precipitation rate
 
 Hout(idDano) == F F     ! rho                density anomaly
-Hout(idVvis) == T T     ! AKv                vertical viscosity
-Hout(idTdif) == T T     ! AKt                vertical T-diffusion
+Hout(idVvis) == F T     ! AKv                vertical viscosity
+Hout(idTdif) == F T     ! AKt                vertical T-diffusion
 Hout(idSdif) == T T     ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F F     ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F F     ! Hbbl               depth of bottom boundary layer
-Hout(idMtke) == T T     ! tke                turbulent kinetic energy
-Hout(idMtls) == T T     ! gls                turbulent length scale
+Hout(idMtke) == F T     ! tke                turbulent kinetic energy
+Hout(idMtls) == F T     ! gls                turbulent length scale
 
-Hout(idDoil) == T T     ! m                  mean oil droplet size in Eulerian 3D grid cells
-Hout(idCoil) == T T     ! kg/m3              mean oil conc by components on Eulerian 3D grid
-Hout(idNflt) == T T     ! none               number of Lagrangian floats in Eulerian 3D grid cells
+Hout(idDoil) == F T     ! m                  mean oil droplet size in Eulerian 3D grid cells
+Hout(idCoil) == F T     ! kg/m3              mean oil conc by components on Eulerian 3D grid
+Hout(idNflt) == F T     ! none               number of Lagrangian floats in Eulerian 3D grid cells
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -769,8 +769,8 @@ Aout(idUvel) == T       ! u                  3D U-velocity
 Aout(idVvel) == T       ! v                  3D V-velocity
 Aout(idu3dE) == F       ! u_eastward         3D U-eastward  at RHO-points
 Aout(idv3dN) == F       ! v_northward        3D V-northward at RHO-points
-Aout(idWvel) == T       ! w                  3D W-velocity
-Aout(idOvel) == T       ! omega              omega vertical velocity
+Aout(idWvel) == F       ! w                  3D W-velocity
+Aout(idOvel) == F       ! omega              omega vertical velocity
 Aout(idUbar) == T       ! ubar               2D U-velocity
 Aout(idVbar) == T       ! vbar               2D V-velocity
 Aout(idu2dE) == F       ! ubar_eastward      2D U-eastward  at RHO-points
@@ -778,16 +778,16 @@ Aout(idv2dN) == F       ! vbar_northward     2D V-northward at RHO-points
 Aout(idFsur) == T       ! zeta               free-surface
 Aout(idBath) == F       ! bath               time-dependent bathymetry
 
-Aout(idTvar) == T T     ! temp, salt         temperature and salinity
+Aout(idTvar) == F F     ! temp, salt         temperature and salinity
 
 Aout(idUair) == F       ! Uwind              surface U-wind
 Aout(idVair) == F       ! Vwind              surface V-wind
 Aout(idUairE) == F      ! Uwind_eastward     surface U-wind
 Aout(idVairN) == F      ! Vwind_northward    surface V-wind
-Aout(idUsms) == T       ! sustr              surface U-stress
-Aout(idVsms) == T       ! svstr              surface V-stress
-Aout(idUbms) == T       ! bustr              bottom U-stress
-Aout(idVbms) == T       ! bvstr              bottom V-stress
+Aout(idUsms) == F       ! sustr              surface U-stress
+Aout(idVsms) == F       ! svstr              surface V-stress
+Aout(idUbms) == F       ! bustr              bottom U-stress
+Aout(idVbms) == F       ! bvstr              bottom V-stress
 
 Aout(idUbrs) == F       ! bustrc             bottom U-current stress
 Aout(idVbrs) == F       ! bvstrc             bottom V-current stress
@@ -853,8 +853,8 @@ Aout(idevap) == F       ! evaporation        evaporation rate
 Aout(idrain) == F       ! rain               precipitation rate
 
 Aout(idDano) == F       ! rho                density anomaly
-Aout(idVvis) == T       ! AKv                vertical viscosity
-Aout(idTdif) == T       ! AKt                vertical T-diffusion
+Aout(idVvis) == F       ! AKv                vertical viscosity
+Aout(idTdif) == F       ! AKt                vertical T-diffusion
 Aout(idSdif) == T       ! AKs                vertical Salinity diffusion
 Aout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Aout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
@@ -974,7 +974,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      GRDNAME == oil_03_grd.nc
 !     ININAME == bio_ini.nc
-     ININAME == NGOM_04_ocean_rst_20100422_LeftGaussian.nc
+     ININAME == mkini_T_PASSIVE/NGOM_04_ocean_rst_20100422_LeftGaussian_0s.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1039,12 +1039,12 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
      RSTNAME == output_LeftGaussian/20secs/oil_03_ocean_rst.nc
-     HISNAME == output_LeftGaussian/20secs/oil_03_ocean_his.nc
+     HISNAME == output_ss/20secs/oil_03_ocean_his.nc  
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
-     AVGNAME == output_LeftGaussian/20secs/oil_03_ocean_avg.nc
+     AVGNAME == output_ss/20secs/oil_03_ocean_avg.nc
      HARNAME == ocean_har.nc
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
