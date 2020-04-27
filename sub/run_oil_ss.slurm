@@ -5,7 +5,7 @@
 
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=oil_03            #Set the job name to "JobExample2"
-#SBATCH --time=12:00:00               #Set the wall clock limit to 6hr and 30min
+#SBATCH --time=24:00:00               #Set the wall clock limit to 6hr and 30min
 #SBATCH --nodes=3                    #Request 1 node
 #SBATCH --ntasks-per-node=28         #Request 8 tasks/cores per node
 #SBATCH --mem=8G                    #Request 8GB per node 
