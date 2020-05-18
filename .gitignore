@@ -5,3 +5,10 @@ output_float_gaussian
 output_LeftGaussian
 output_gaussian
 output_30days_TPassive_H
+sub/check_coast_U3C4_nhis1.slurm
+sub/run_oil_ss_*
+output_ss
+nohup.out
+External/oil_03_ss_*
+Build
+log

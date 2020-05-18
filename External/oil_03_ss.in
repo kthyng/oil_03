@@ -73,10 +73,7 @@
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
 
-     VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL-old/ROMS/External/varinfo.dat
-!    VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL-dj/ROMS/External/varinfo.dat
-!     VARNAME = /home/lixinqu/scratch/COAWST-ROMS-OIL/ROMS/External/varinfo.dat
-!     VARNAME = ../src/COAWST-ROMS-OIL/ROMS/External/varinfo.dat
+     VARNAME = /scratch/group/csomio/COAWST-ROMS-OIL/ROMS/External/varinfo-online.dat
 
 ! Number of nested grids.
 

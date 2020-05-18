@@ -29,4 +29,4 @@ export NETCDF_LIBDIR=$EBROOTNETCDFMINFORTRAN/lib
 export MCT_INCDIR=/home/lixinqu/local/include
 export MCT_LIBDIR=/home/lixinqu/local/lib
 
-mpirun -np 84 ./coawstM_#WHICHADVECT# External/oil_03_ss_nhis#NHIS#.in
+mpirun -np 84 ./coawstM_#WHICHADVECT# External/oil_03_ss_#WHICHADVECT#_nhis#NHIS#.in

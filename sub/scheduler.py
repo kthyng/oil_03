@@ -1,7 +1,7 @@
 import os
 
-nhiss = [1, 2, 5, 10, 20, 50, 100, 200, 500]
-whichadvects = ['U3C4','MPDATA']
+nhiss = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000,2000,5000]
+whichadvects = ['U3C4']#,'MPDATA']
 
 base = '/'.join(os.getcwd().split('/')[:-1]) 
 for nhis in nhiss:
@@ -27,7 +27,7 @@ for nhis in nhiss:
 
         logfile = 'ss_%s_nhis%i' % (whichadvect,nhis)
         strings = (logfile, whichadvect, nhis, jobfile_in, jobfile_out)
-        os.system("sed -e 's/#LOGNAME#/%s/' -e 's/#WHICHADVECT#/%s/' -e 's/#NHIS#/%s/' %s > %s" % strings)
+        os.system("sed -e 's/#LOGNAME#/%s/' -e 's/#WHICHADVECT#/%s/g' -e 's/#NHIS#/%s/' %s > %s" % strings)
 
         os.chdir('../')
         os.system('sbatch sub/%s' % jobfile_out)
