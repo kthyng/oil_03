@@ -16,7 +16,24 @@
 #undef SWAN_MODEL
 #define ROMS_MODEL
 
-#define ANA_AKTCLIMA
+/* To run an online simulation for future use with offline simulations */
+#define ANA_AKTCLIMA            /* some defns needed from this */
+#define OUT_DOUBLE              /* double precision for offline sim forcing */
+/* MPDATA performs better in the offline sim */
+#undef TS_U3HADVECTION
+#undef TS_C4VADVECTION
+#define TS_MPDATA
+
+/*
+ * **-----------------------------------------------------------------------------
+ * **  Adding Passive tracers
+ * **-----------------------------------------------------------------------------
+ * */
+#define T_PASSIVE
+#define ANA_BPFLUX
+#define ANA_SPFLUX
+
+
 
 #undef  AFT_EIGENMODES          /* Adjoint Finite Time Eigenmodes */
 #undef  CORRELATION             /* Background-error Correlation Check */
@@ -51,9 +68,6 @@
 #define MIX_S_UV               /*mixing of momentum along constant s surfaces*/
 #define SPLINES_VDIFF
 #define SPLINES_VVISC
-#define TS_U3HADVECTION
-#define TS_C4VADVECTION
-#undef TS_MPDATA
 #define SOLVE3D
 #define SALINITY
 #define NONLIN_EOS
@@ -107,7 +121,6 @@
 #undef ANA_PERTURB
 
 #undef FORWARD_WRITE
-#define OUT_DOUBLE
 #undef FORWARD_READ
 #undef FORWARD_MIXING
 
@@ -205,12 +218,3 @@
 # define ANA_PERTURB
 # define ANA_INITIAL
 #endif
-
-/*
- * **-----------------------------------------------------------------------------
- * **  Adding Passive tracers
- * **-----------------------------------------------------------------------------
- * */
-#define T_PASSIVE
-#define ANA_BPFLUX
-#define ANA_SPFLUX
