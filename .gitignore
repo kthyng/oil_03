@@ -12,3 +12,5 @@ nohup.out
 External/oil_03_ss_*
 Build
 log
+External/ocean_oil_03_LeftGaussian*
+External/oil_03_floats*
