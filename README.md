@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/250289497.svg)](https://zenodo.org/badge/latestdoi/250289497)
+
 # oil_03
 Project files for running online test with oil application
 
